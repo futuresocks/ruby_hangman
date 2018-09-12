@@ -43,6 +43,26 @@ class TestGame < Minitest::Test
   def test_guess__lose_lives_if_wrong
     @game.guess("z")
     assert_equal(5, @player.lives)
-  end 
+  end
+
+  def test_is_lost__lives_left
+    assert_equal(false, @game.is_lost?)
+  end
+
+  def test_is_lost__lives_lost
+    @player.lives = 0
+    assert_equal(true, @game.is_lost?)
+  end
+
+  def test_is_won__letters_left
+    assert_equal(false, @game.is_won?)
+  end
+
+  def test_is_won__letters_gone
+    @word2 = HiddenWord.new("a")
+    @game2 = Game.new(@player, @word2)
+    @game2.guess("a")
+    assert_equal(true, @game2.is_won?)
+  end
 
 end

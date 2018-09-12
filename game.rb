@@ -17,9 +17,9 @@ class Game
      return player.lives == 0
    end
 
-   # def is_won?
-   #   return !@word.display.include? "*"
-   # end
+   def is_won?
+     return !(display_word().chars.include? "*")
+   end
 
    def display_word
      return @word.display
