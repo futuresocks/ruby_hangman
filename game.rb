@@ -25,4 +25,16 @@ class Game
      return @word.display
    end
 
+   def show_answer
+     return @word.answer
+   end
+
+   def game_status
+     puts display_word()
+     puts "#{@player.name} has #{@player.lives} lives left!"
+     puts "Guessed letters: #{@guessed}"
+   end
+
+
+
 end

@@ -65,4 +65,16 @@ class TestGame < Minitest::Test
     assert_equal(true, @game2.is_won?)
   end
 
+  def test_show_answer
+    assert_equal("bananas", @game.show_answer)
+  end
+
+  def test_display_word
+    assert_equal("*******", @game.display_word)
+  end
+
+  def test_game_status
+    assert_output("*******\nColin has 6 lives left!\nGuessed letters: []\n"){@game.game_status}
+  end
+
 end
