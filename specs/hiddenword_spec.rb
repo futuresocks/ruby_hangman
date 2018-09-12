@@ -37,5 +37,4 @@ class TestHiddenWord < Minitest::Test
     assert_equal("*******", @word.display)
   end
 
-
 end
