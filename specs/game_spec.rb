@@ -29,10 +29,20 @@ class TestGame < Minitest::Test
     assert_equal(["a"], @game.guessed)
   end
 
-  def test_guessed_letters__cannot_duplicate
+  def test_guess__cannot_duplicate
     @game.guess("a")
     @game.guess("a")
     assert_equal(["a"], @game.guessed)
   end
+
+  def test_guess__reveals_letters
+    @game.guess("a")
+    assert_equal("*a*a*a*", @game.display_word())
+  end
+
+  def test_guess__lose_lives_if_wrong
+    @game.guess("z")
+    assert_equal(5, @player.lives)
+  end 
 
 end
