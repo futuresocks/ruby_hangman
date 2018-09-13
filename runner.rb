@@ -13,7 +13,7 @@ word = STDIN.noecho(&:gets).chomp
 
 hidden_word = HiddenWord.new(word)
 
-puts "THE GAME HAS BEGUN"
+puts "Game on!"
 
 game = Game.new(player, hidden_word)
 
@@ -24,7 +24,7 @@ while(!game.is_lost? && !game.is_won?)
   game.game_status
 end
 
-puts "THE ANSWER WAS #{game.show_answer}"
+puts "The answer was #{game.show_answer}"
 result = game.is_won? ? "Well done!" : "Better luck next time!"
 puts result
 puts "GAME OVER"
