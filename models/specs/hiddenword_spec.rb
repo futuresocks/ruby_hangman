@@ -21,6 +21,19 @@ class TestHiddenWord < Minitest::Test
     assert_equal("**** ** * ********", @sentence.display)
   end
 
+  def test_answer_includes_letter
+    assert_equal(true, @word.answer_includes_letter?("b"))
+  end
+
+  def test_get_indices_of_letter
+    assert_equal([1,3,5], @word.get_indexes_of_letter("a"))
+  end
+
+  def test_reveal_letters
+    @word.reveal_letters([1,3,5])
+    assert_equal("*a*a*a*", @word.display)
+  end
+
   def test_guess__single_letter
     @word.guess("b")
     assert_equal("b******", @word.display)
