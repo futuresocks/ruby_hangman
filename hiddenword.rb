@@ -1,5 +1,3 @@
-# require('pry-byebug')
-
 class HiddenWord
 
   attr_reader :answer, :display
@@ -10,11 +8,11 @@ class HiddenWord
   end
 
   def answer_includes_letter?(letter)
-    return @answer.include? letter
+    return @answer.downcase.include? letter.downcase
   end
 
   def get_indexes_of_letter(letter)
-    return (0 ... @answer.length).find_all { |i| @answer[i] == letter }
+    return (0 ... @answer.length).find_all { |i| @answer.downcase[i] == letter.downcase }
   end
 
   def reveal_letters(indices)
