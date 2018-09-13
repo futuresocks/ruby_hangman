@@ -13,7 +13,6 @@ def initialize
 end
 
 get "/" do
-  @letters = ("a".."z")
   erb(:landing_page)
 end
 
