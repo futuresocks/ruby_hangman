@@ -16,7 +16,7 @@ get "/" do
   erb(:landing_page)
 end
 
-get "/:letter" do
+get "/guess/:letter" do
   @game.guess(params[:letter])
   erb(:guess)
 end

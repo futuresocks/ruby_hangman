@@ -8,8 +8,9 @@
     <main>
     <%=yield%>
   </main>
+
   <% ("a".."z").each do |letter| %>
-  <form action= "http://localhost:4567/<%= letter %>">
+  <form action= "http://localhost:4567/guess/<%= letter %>">
     <input type="submit" value=<%=letter%> />
   </form>
     <% end %>
