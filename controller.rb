@@ -18,5 +18,6 @@ end
 
 get "/guess/:letter" do
   @game.guess(params[:letter])
+  @letters = ("a".."z").select {|letter| letter unless @game.guessed.include? letter}.uniq
   erb(:guess)
 end

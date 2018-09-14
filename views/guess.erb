@@ -1,2 +1,7 @@
 <h1><%= @game.display_word %><h1>
 <h2> <%= @game.guessed %> </h2>
+<% @letters.each do |letter| %>
+<form action= "http://localhost:4567/guess/<%= letter %>">
+  <input type="submit" value=<%=letter%> />
+</form>
+  <% end %>
