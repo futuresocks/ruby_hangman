@@ -18,6 +18,16 @@ end
 
 get "/guess/:letter" do
   @game.guess(params[:letter])
-  @letters = ("a".."z").select {|letter| letter unless @game.guessed.include? letter}.uniq
+  if @game.is_won? || @game.is_lost?
+    redirect '/endgame'
+  end
+
+  @lives = @game.player.lives
+  @letters = ("a".."z").select {|letter| letter unless @game.guessed.include? letter}
   erb(:guess)
+end
+
+get "/endgame" do
+  @outcome = @game.is_won? ? "You win!" : "You lose!"
+  erb(:endgame)
 end
