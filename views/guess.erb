@@ -1,5 +1,5 @@
-<h1><%= @game.display_word %><h1>
-<h2> <%= @game.guessed %> </h2>
+<h1><%= $game.display_word %><h1>
+<h2> <%= $game.guessed %> </h2>
 <h3> <%= @lives > 1 ? "#{@lives} lives" : "#{@lives} life" %> left </h3>
 <% @letters.each do |letter| %>
 <form action= "http://localhost:4567/guess/<%= letter %>">
