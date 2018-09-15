@@ -1,5 +1,6 @@
 <h1><%= $game.display_word %><h1>
 <h2> <%= $game.guessed %> </h2>
+<img src= <%= $images[@lives] %>/>
 <h3> <%= @lives > 1 ? "#{@lives} lives" : "#{@lives} life" %> left </h3>
 <form method= "POST" action= "http://localhost:4567/guess">
   <% @letters.each do |letter| %>

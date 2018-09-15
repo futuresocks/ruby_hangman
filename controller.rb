@@ -3,7 +3,10 @@ require('random_word_generator')
 require_relative('models/game')
 require_relative('models/player')
 require_relative('models/hiddenword')
+require_relative('modules/imagekey')
 require('pry')
+
+$images = ImageKey::IMAGES
 
 get "/welcome" do
   erb(:landing_page)
