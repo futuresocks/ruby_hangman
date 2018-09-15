@@ -1,8 +1,8 @@
 <h1><%= $game.display_word %><h1>
 <h2> <%= $game.guessed %> </h2>
 <h3> <%= @lives > 1 ? "#{@lives} lives" : "#{@lives} life" %> left </h3>
-<% @letters.each do |letter| %>
 <form method= "POST" action= "http://localhost:4567/guess">
+  <% @letters.each do |letter| %>
   <input name = "letter" type="submit" value=<%=letter%> />
-</form>
   <% end %>
+</form>
