@@ -18,9 +18,7 @@ end
 
 get "/guess/:letter" do
   @game.guess(params[:letter])
-  if @game.is_won? || @game.is_lost?
-    redirect '/endgame'
-  end
+  redirect '/endgame' if @game.is_won? || @game.is_lost?
 
   @lives = @game.player.lives
   @letters = ("a".."z").select {|letter| letter unless @game.guessed.include? letter}
@@ -31,3 +29,12 @@ get "/endgame" do
   @outcome = @game.is_won? ? "You win!" : "You lose!"
   erb(:endgame)
 end
+
+get "/newgame" do
+  player = Player.new("Colin")
+  word = RandomWordGenerator.word
+  hiddenword = HiddenWord.new(word)
+  @game = Game.new(player, hiddenword)
+  @letters = ("a".."z")
+  erb(:landing_page)
+end 
