@@ -26,8 +26,8 @@ end
 
 post "/guess" do
   $game.guess(params[:letter])
-  redirect '/endgame' if $game.is_won? || $game.is_lost?
-  redirect '/guess'
+  next_page = $game.is_won? || $game.is_lost? ? '/endgame' : '/guess'
+  redirect next_page
 end
 
 get "/endgame" do
