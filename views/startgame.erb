@@ -1,6 +1,0 @@
-<h1><%= $game.display_word %><h1>
-  <% @letters.each do |letter| %>
-  <form action= "http://localhost:4567/guess/<%= letter %>">
-    <input type="submit" value=<%=letter%> />
-  </form>
-    <% end %>
