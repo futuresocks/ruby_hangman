@@ -34,6 +34,7 @@ post "/guess" do
 end
 
 get "/endgame" do
+  @lives = $game.player.lives
   @outcome = $game.is_won? ? "You win!" : "You lose!"
   @answer = $game.show_answer
   erb(:endgame)
