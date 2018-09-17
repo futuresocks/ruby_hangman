@@ -4,6 +4,6 @@
 <h3> <%= "#{@lives} li#{@lives > 1 ? "ves" : "fe"}"%> left </h3>
 <form method= "POST" action= "http://localhost:4567/guess">
   <% @letters.each do |letter| %>
-  <input name = "letter" type="submit" value=<%=letter%> />
+  <input id = <%=letter%> name = "letter" type="submit" value=<%=letter%> />
   <% end %>
 </form>
