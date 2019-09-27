@@ -9,7 +9,7 @@ class Game
    end
 
    def guess(letter)
-     @guessed << letter if !@guessed.include? letter
+     @guessed << letter if !@guessed.include? letter && !@word.answer_includes_letter?(letter)
      player.lose_life if !@word.guess(letter)
    end
 
